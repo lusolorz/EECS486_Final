@@ -1,5 +1,6 @@
 import sys
 from bs4 import BeautifulSoup
+import requests
 
 # This is just a helper function so I could debug the percentage values
 def percent_to_bool(s):
@@ -12,12 +13,14 @@ def percent_to_bool(s):
 
 # This populates the tournament website's dictionary
 def populate_tournament(html_file_path):
+    html_content = None
     with open(html_file_path, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
     soup = BeautifulSoup(html_content, 'html.parser')
 
     # Intermediary variables for the tbody portions
+    # tbody = soup.find_all('tbody', class_='Table__TBODY')
     first_tbody = soup.find_all('tbody', class_='Table__TBODY')[0]
     second_tbody = soup.find_all('tbody', class_='Table__TBODY')[1]
 
@@ -54,6 +57,7 @@ def populate_tournament(html_file_path):
 
 # This populates the resume wesbite's dictionary
 def populate_resume(html_file_path):
+    html_content = None
     with open(html_file_path, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
@@ -75,9 +79,11 @@ def populate_resume(html_file_path):
 
         if len(w_l_record) == 2:
             wins, losses = map(int, w_l_record)
+            win_percentage = round(float(wins/(wins + losses)), 2)
             team_details_list.append({
                 'Wins': wins,
                 'Losses': losses,
+                'Win_%': win_percentage,
                 'SOS_RK': sos_rk
             })
         else:
@@ -88,12 +94,22 @@ def populate_resume(html_file_path):
 
     return full_team_data
 
+
+# adds teams in dict2 to dict1
+def remove_repeats(dict1, dict2):
+    for key in dict2:
+        if key not in dict1:
+            dict1[key] = dict2[key]
+    return dict1
+
+
 # This combines the tournament and the resume website's dictionary into the combined intermediary dictonary, 
 def combine_dictionaries(dict1, dict2):
     for key in dict1:
         if key in dict2:
             dict1[key].update(dict2[key])
     return dict1
+
 
 # This just separates and gives us all of the dictonaries of our dreams (the four regions)
 def split_by_region(combined_data):
@@ -122,21 +138,28 @@ def split_by_region(combined_data):
 if __name__ == '__main__':
 
     # How to run the code
-    if len(sys.argv) != 3:
-        print("Usage: python3 populate_dictionaries.py tournament.html resume.html")
+    if len(sys.argv) != 5:
+        print("Usage: python3 populate_dictionaries.py tournament_asc_html tournament_desc_html resume_asc_html resume_desc_html")
         sys.exit(1)
 
     # Systems arguments from command line, to pass in the required html portions
-    tournament_html = sys.argv[1]
-    resume_html = sys.argv[2]
+    tournament_asc_html = sys.argv[1]
+    tournament_desc_html = sys.argv[2]
+    resume_asc_html = sys.argv[3]
+    resume_desc_html = sys.argv[4]
 
     # Tournament dictonary portion, along with its respective print command
-    tournament = populate_tournament(tournament_html)
+    tournament_asc = populate_tournament(tournament_asc_html)
+    tournament_desc = populate_tournament(tournament_desc_html)
+    tournament = remove_repeats(tournament_asc, tournament_desc)
     # for team, details in tournament.items():
     #     print(f"{team}: {details}")
+    # new function for descending teams on tournament page
 
     # Resume dictonary portion, along with its respective print command
-    resume = populate_resume(resume_html)
+    resume_asc = populate_resume(resume_asc_html)
+    resume_desc = populate_resume(resume_desc_html)
+    resume = remove_repeats(resume_asc, resume_desc)
     # for team, details in resume.items():
     #     print(f"{team}: {details}")
 
@@ -144,10 +167,9 @@ if __name__ == '__main__':
 
     # Combined dictonary portion, along with its respective print command
     combined = combine_dictionaries(tournament, resume)
+    print("SIZE: " + str(len(combined.keys())))
     # for team, details in combined.items():
     #     print(f"{team}: {details}")
-
-    print("\n\naw hell nah dictionary overload wtaf\n\n")
 
     # Region-wise dictonary portion, along with its respective print command
     east, west, south, midwest = split_by_region(combined)
