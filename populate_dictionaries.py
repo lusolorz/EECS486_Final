@@ -1,6 +1,7 @@
 import sys
 from bs4 import BeautifulSoup
 import requests
+import random
 
 # This is just a helper function so I could debug the percentage values
 def percent_to_bool(s):
@@ -134,6 +135,83 @@ def split_by_region(combined_data):
 
     return east_dict, west_dict, south_dict, midwest_dict
 
+
+# analysis
+def analyze(region):
+    scale = 0.05
+    for team in region:
+        sos_per = region[team]["SOS_RK"]/100
+        score = round(region[team]["Win_%"] - (scale * sos_per), 2)
+        region[team]["Score"] = score
+
+
+# creates a dictonary key: seed, value: team name
+def seed_name(region):
+    seeds = {}
+    for key in region:
+        seeds[region[key]["Seed"]] = key
+    return seeds
+
+
+def first_round(region, seeds):
+    first = []
+    # random
+    per_1_16 = 0.987
+    rand_one = random.randint(0,100)/100
+    if rand_one <= per_1_16:
+        first.append(seeds[1])
+    else:
+        first.append(seeds[16])
+    per_2_15 = 0.928
+    rand_two = random.randint(0,100)/100
+    if rand_two <= per_2_15:
+        first.append(seeds[2])
+    else:
+        first.append(seeds[15])
+    per_3_14 = 0.855
+    rand_three = random.randint(0,100)/100
+    if rand_three <= per_3_14:
+        first.append(seeds[3])
+    else:
+        first.append(seeds[14])
+    per_4_13 = 0.789
+    rand_four = random.randint(0,100)/100
+    if rand_four <= per_4_13:
+        first.append(seeds[4])
+    else:
+        first.append(seeds[13])
+    # score based + historical data
+    per_5_12 = 0.651
+    biased_5 = region[seeds[5]]["Score"] * per_5_12
+    biased_12 = region[seeds[12]]["Score"] * (1-per_5_12)
+    if biased_5 >= biased_12:
+        first.append(seeds[5])
+    else:
+        first.append(seeds[12])
+    per_6_11 = 0.618
+    biased_6 = region[seeds[6]]["Score"] * per_6_11
+    biased_11 = region[seeds[11]]["Score"] * (1 - per_6_11)
+    if biased_6 >= biased_11:
+        first.append(seeds[6])
+    else:
+        first.append(seeds[11])
+    per_7_10 = 0.609
+    biased_7 = region[seeds[7]]["Score"] * per_7_10
+    biased_10 = region[seeds[10]]["Score"] * (1 - per_7_10)
+    if biased_7 >= biased_10:
+        first.append(seeds[7])
+    else:
+        first.append(seeds[10])
+    # 9 normally beats 8
+    per_8_9 = 0.487
+    biased_8 = region[seeds[8]]["Score"] * per_8_9
+    biased_9 = region[seeds[9]]["Score"] * (1 - per_8_9)
+    if biased_9 >= biased_8:
+        first.append(seeds[9])
+    else:
+        first.append(seeds[8])
+    return first
+
 # Main!
 if __name__ == '__main__':
 
@@ -173,21 +251,32 @@ if __name__ == '__main__':
 
     # Region-wise dictonary portion, along with its respective print command
     east, west, south, midwest = split_by_region(combined)
+    analyze(east)
+    analyze(west)
+    analyze(south)
+    analyze(midwest)
+    east_seeds = seed_name(east)
+    west_seeds = seed_name(west)
+    south_seeds = seed_name(south)
+    mid_seeds = seed_name(midwest)
+    east_first = first_round(east, east_seeds)
+    print(east_first)
+    
 
     # Sanity check print statements for the regions
     print("\n\neast\n\n")
     for team, details in east.items():
         print(f"{team}: {details}")
     
-    print("\n\nwest\n\n")
-    for team, details in west.items():
-        print(f"{team}: {details}")
+    # print("\n\nwest\n\n")
+    # for team, details in west.items():
+    #     print(f"{team}: {details}")
 
-    print("\n\nsouth\n\n")   
-    for team, details in south.items():
-        print(f"{team}: {details}")
+    # print("\n\nsouth\n\n")   
+    # for team, details in south.items():
+    #     print(f"{team}: {details}")
 
-    print("\n\nmidwest\n\n") 
-    for team, details in midwest.items():
-        print(f"{team}: {details}")
+    # print("\n\nmidwest\n\n") 
+    # for team, details in midwest.items():
+    #     print(f"{team}: {details}")
 
