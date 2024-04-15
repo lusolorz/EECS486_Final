@@ -118,6 +118,80 @@ def split_by_region(combined_data):
 
     return east_dict, west_dict, south_dict, midwest_dict
 
+def to_bracket_vis():
+    # How to run the code
+    if len(sys.argv) != 3:
+        print(str(len(sys.argv)) + "\n")
+        print("Usage: python3 populate_dictionaries.py tournament.html resume.html")
+        sys.exit(1)
+
+    # Systems arguments from command line, to pass in the required html portions
+    tournament_html = sys.argv[1]
+    resume_html = sys.argv[2]
+
+    # Tournament dictonary portion, along with its respective print command
+    tournament = populate_tournament(tournament_html)
+    # for team, details in tournament.items():
+    #     print(f"{team}: {details}")
+
+    # Resume dictonary portion, along with its respective print command
+    resume = populate_resume(resume_html)
+    # for team, details in resume.items():
+    #     print(f"{team}: {details}")
+
+    print("\n\nhere it comes\n\n")
+
+    # Combined dictonary portion, along with its respective print command
+    combined = combine_dictionaries(tournament, resume)
+    # for team, details in combined.items():
+    #     print(f"{team}: {details}")
+
+    print("\n\naw hell nah dictionary overload wtaf\n\n")
+
+    # Region-wise dictonary portion, along with its respective print command
+    east, west, south, midwest = split_by_region(combined)
+
+    # Sanity check print statements for the regions
+    print("\n\neast\n\n")
+    for team, details in east.items():
+        print(f"{team}: {details}")
+    
+    print("\n\nwest\n\n")
+    for team, details in west.items():
+        print(f"{team}: {details}")
+
+    print("\n\nsouth\n\n")   
+    for team, details in south.items():
+        print(f"{team}: {details}")
+
+    print("\n\nmidwest\n\n") 
+    for team, details in midwest.items():
+        print(f"{team}: {details}")
+    
+    #lists for teams 
+    east_bracket = {}
+    for i in east.keys():
+        east_bracket[i] = east[i]['SOS_RK']
+    west_bracket = {}
+    for i in west.keys():
+        west_bracket[i] = west[i]['SOS_RK']
+    midwest_bracket = {}
+    for i in midwest.keys():
+        midwest_bracket[i] = midwest[i]['SOS_RK']
+    south_bracket = {}
+    for i in south.keys():
+        south_bracket[i] = south[i]['SOS_RK']
+
+
+
+    teams_all = {}
+    teams_all['east'] = east_bracket
+    teams_all['west'] = west_bracket
+    teams_all['midwest'] = midwest_bracket
+    teams_all['south'] = south_bracket
+
+    return teams_all
+
 # Main!
 if __name__ == '__main__':
 
@@ -168,4 +242,5 @@ if __name__ == '__main__':
     print("\n\nmidwest\n\n") 
     for team, details in midwest.items():
         print(f"{team}: {details}")
+
 
