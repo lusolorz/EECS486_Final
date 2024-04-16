@@ -284,6 +284,7 @@ if __name__ == '__main__':
     # for team, details in south.items():
     #     print(f"{team}: {details}")
 
-    # print("\n\nmidwest\n\n") 
-    # for team, details in midwest.items():
-    #     print(f"{team}: {details}")
+    print("\n\nmidwest\n\n") 
+    for team, details in midwest.items():
+        print(f"{team}: {details}")
+

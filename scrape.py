@@ -33,11 +33,7 @@ def crawl_resume():
     # print(team_info)
     # print(team)
     # teamDataDictionary = {}
-    
 
-# this is a function to create win percentages for every team (given a dictionary with team wins and loses)
-# def create_win_percentage(teamDataDictionary):
-#     for teams in teamDataDictionary:
         
 # need to scrape sosrk not sor 
         
