@@ -401,16 +401,3 @@ def run():
     #final four
     final = [south_mid, east_west]
     winner = champ
-
-
-    # print("\n\nwest\n\n")
-    # for team, details in west.items():
-    #     print(f"{team}: {details}")
-
-    # print("\n\nsouth\n\n")   
-    # for team, details in south.items():
-    #     print(f"{team}: {details}")
-
-    # print("\n\nmidwest\n\n") 
-    # for team, details in midwest.items():
-    #     print(f"{team}: {details}")
