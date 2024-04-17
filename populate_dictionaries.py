@@ -349,6 +349,7 @@ def run():
     east_west, region_two = diff_regions(east_winner, east, west_winner, west)
     champ, region = diff_regions(south_mid, region_one, east_west, region_two)
 
+    #sort first rounds based on seeds for matchup 
     first_rounds = []
     def get_age(item):
         return item[1]['Seed']
@@ -375,7 +376,7 @@ def run():
     sorted_dict = dict(sorted_data)
     first_rounds.append(list(sorted_dict.keys()))
 
-
+    #Save round winners for all regions
     east_total = []
     east_total.append(east_first)
     east_total.append(east_second)
@@ -397,7 +398,19 @@ def run():
     mid_total.append(mid_third)
     mid_total.append(mid_winner)
 
+    #final four
     final = [south_mid, east_west]
     winner = champ
 
-    return first_rounds, east_total, west_total, south_total, mid_total, final, winner
+
+    # print("\n\nwest\n\n")
+    # for team, details in west.items():
+    #     print(f"{team}: {details}")
+
+    # print("\n\nsouth\n\n")   
+    # for team, details in south.items():
+    #     print(f"{team}: {details}")
+
+    # print("\n\nmidwest\n\n") 
+    # for team, details in midwest.items():
+    #     print(f"{team}: {details}")
