@@ -162,70 +162,122 @@ def seed_name(region):
 
 
 def first_round(region, seeds):
-    first = []
+    winners = []
     # random
     per_1_16 = 0.987
     rand_one = random.randint(0,100)/100
     if rand_one <= per_1_16:
-        first.append(seeds[1])
+        winners.append(seeds[1])
     else:
-        first.append(seeds[16])
-    per_2_15 = 0.928
-    rand_two = random.randint(0,100)/100
-    if rand_two <= per_2_15:
-        first.append(seeds[2])
-    else:
-        first.append(seeds[15])
-    per_3_14 = 0.855
-    rand_three = random.randint(0,100)/100
-    if rand_three <= per_3_14:
-        first.append(seeds[3])
-    else:
-        first.append(seeds[14])
-    per_4_13 = 0.789
-    rand_four = random.randint(0,100)/100
-    if rand_four <= per_4_13:
-        first.append(seeds[4])
-    else:
-        first.append(seeds[13])
-    # score based + historical data
-    per_5_12 = 0.651
-    biased_5 = region[seeds[5]]["Score"] * per_5_12
-    biased_12 = region[seeds[12]]["Score"] * (1-per_5_12)
-    if biased_5 >= biased_12:
-        first.append(seeds[5])
-    else:
-        first.append(seeds[12])
-    per_6_11 = 0.618
-    biased_6 = region[seeds[6]]["Score"] * per_6_11
-    biased_11 = region[seeds[11]]["Score"] * (1 - per_6_11)
-    if biased_6 >= biased_11:
-        first.append(seeds[6])
-    else:
-        first.append(seeds[11])
-    per_7_10 = 0.609
-    biased_7 = region[seeds[7]]["Score"] * per_7_10
-    biased_10 = region[seeds[10]]["Score"] * (1 - per_7_10)
-    if biased_7 >= biased_10:
-        first.append(seeds[7])
-    else:
-        first.append(seeds[10])
+        winners.append(seeds[16])
     # 9 normally beats 8
     per_8_9 = 0.487
     biased_8 = region[seeds[8]]["Score"] * per_8_9
     biased_9 = region[seeds[9]]["Score"] * (1 - per_8_9)
     if biased_9 >= biased_8:
-        first.append(seeds[9])
+        winners.append(seeds[9])
     else:
-        first.append(seeds[8])
-    return first
+        winners.append(seeds[8])
+    per_5_12 = 0.651
+    biased_5 = region[seeds[5]]["Score"] * per_5_12
+    biased_12 = region[seeds[12]]["Score"] * (1-per_5_12)
+    if biased_5 >= biased_12:
+        winners.append(seeds[5])
+    else:
+        winners.append(seeds[12])
+    per_4_13 = 0.789
+    rand_four = random.randint(0,100)/100
+    if rand_four <= per_4_13:
+        winners.append(seeds[4])
+    else:
+        winners.append(seeds[13])
+    per_6_11 = 0.618
+    biased_6 = region[seeds[6]]["Score"] * per_6_11
+    biased_11 = region[seeds[11]]["Score"] * (1 - per_6_11)
+    if biased_6 >= biased_11:
+        winners.append(seeds[6])
+    else:
+        winners.append(seeds[11])
+    per_3_14 = 0.855
+    rand_three = random.randint(0,100)/100
+    if rand_three <= per_3_14:
+        winners.append(seeds[3])
+    else:
+        winners.append(seeds[14])
+    per_7_10 = 0.609
+    biased_7 = region[seeds[7]]["Score"] * per_7_10
+    biased_10 = region[seeds[10]]["Score"] * (1 - per_7_10)
+    if biased_7 >= biased_10:
+        winners.append(seeds[7])
+    else:
+        winners.append(seeds[10])
+    per_2_15 = 0.928
+    rand_two = random.randint(0,100)/100
+    if rand_two <= per_2_15:
+        winners.append(seeds[2])
+    else:
+        winners.append(seeds[15])
+    return winners
 
-# Main!
-if __name__ == '__main__':
+def later_rounds(region, teams, num):
+    winners = []
+    count = 0
+    randomness = 87
+    while count < num:
+        rand = random.randint(0,100)
+        team_one = teams[count]
+        team_two = teams[count+1]
+        score_one = region[team_one]["Score"]
+        score_two = region[team_two]["Score"]
+        if rand <= randomness:
+            if score_one > score_two:
+                winners.append(team_one)
+            elif score_two > score_one:
+                winners.append(team_two)
+            else:
+                winners.append(tiebreaker(region, team_one, team_two))
+        else:
+            if score_one > score_two:
+                winners.append(team_two)
+            elif score_two > score_one:
+                winners.append(team_one)
+            else:
+                winners.append(tiebreaker(region, team_one, team_two))
+        count += 2
+    return winners
 
-    # How to run the code
+
+def diff_regions(team_one, region_one, team_two, region_two):
+    randomness = 90
+    rand = random.randint(0,100)
+    if isinstance(team_one, list):
+        team_one = team_one[0]
+        team_two = team_two[0]
+    score_one = region_one[team_one]["Score"]
+    score_two = region_two[team_two]["Score"]
+    if rand <= randomness:
+        if score_one >= score_two:
+            return team_one, region_one
+        elif score_two > score_one:
+            return team_two, region_two
+        else:
+            if region_one[team_one]["Seed"] > region_two[team_two]["Seed"]:
+                return team_one, region_one
+            else:
+                return team_two, region_two
+    else:
+        if score_one > score_two:
+            return team_two, region_two
+        elif score_two > score_one:
+            return team_one, region_one
+        else:
+            if region_one[team_one]["Seed"] > region_two[team_two]["Seed"]:
+                return team_one, region_one
+            else:
+                return team_two, region_two
+def run():
     if len(sys.argv) != 5:
-        print("Usage: python3 populate_dictionaries.py tournament_asc_html tournament_desc_html resume_asc_html resume_desc_html")
+        print("Usage: python3 populate_dictionaries.py tournament_asc.html tournament_desc.html resume_asc.html resume_desc.html")
         sys.exit(1)
 
     # Systems arguments from command line, to pass in the required html portions
@@ -249,11 +301,11 @@ if __name__ == '__main__':
     # for team, details in resume.items():
     #     print(f"{team}: {details}")
 
-    print("\n\nhere it comes\n\n")
+    # print("\n\nhere it comes\n\n")
 
     # Combined dictonary portion, along with its respective print command
     combined = combine_dictionaries(tournament, resume)
-    print("SIZE: " + str(len(combined.keys())))
+    # print("SIZE: " + str(len(combined.keys())))
     # for team, details in combined.items():
     #     print(f"{team}: {details}")
 
@@ -267,24 +319,85 @@ if __name__ == '__main__':
     west_seeds = seed_name(west)
     south_seeds = seed_name(south)
     mid_seeds = seed_name(midwest)
+
+    # EAST REGION
     east_first = first_round(east, east_seeds)
-    print(east_first)
-    
+    east_second = later_rounds(east, east_first, 8)
+    east_third = later_rounds(east, east_second, 4)
+    east_winner = later_rounds(east, east_third, 2)
 
-    # Sanity check print statements for the regions
-    print("\n\neast\n\n")
-    for team, details in east.items():
-        print(f"{team}: {details}")
-    
-    # print("\n\nwest\n\n")
-    # for team, details in west.items():
-    #     print(f"{team}: {details}")
+    # WEST REGION
+    west_first = first_round(west, west_seeds)
+    west_second = later_rounds(west, west_first, 8)
+    west_third = later_rounds(west, west_second, 4)
+    west_winner = later_rounds(west, west_third, 2)
 
-    # print("\n\nsouth\n\n")   
-    # for team, details in south.items():
-    #     print(f"{team}: {details}")
+    # SOUTH REGION
+    south_first = first_round(south, south_seeds)
+    south_second = later_rounds(south, south_first, 8)
+    south_third = later_rounds(south, south_second, 4)
+    south_winner = later_rounds(south, south_third, 2)
 
-    print("\n\nmidwest\n\n") 
-    for team, details in midwest.items():
-        print(f"{team}: {details}")
+    # MIDWEST REGION
+    mid_first = first_round(midwest, mid_seeds)
+    mid_second = later_rounds(midwest, mid_first, 8)
+    mid_third = later_rounds(midwest, mid_second, 4)
+    mid_winner = later_rounds(midwest, mid_third, 2)
 
+    # ALL REGIONS (FINAL FOUR ONWARD)
+    south_mid, region_one = diff_regions(south_winner, south, mid_winner, midwest)
+    east_west, region_two = diff_regions(east_winner, east, west_winner, west)
+    champ, region = diff_regions(south_mid, region_one, east_west, region_two)
+
+    first_rounds = []
+    def get_age(item):
+        return item[1]['Seed']
+    data_list = list(east.items())
+    sorted_data = sorted(data_list, key=get_age)
+    sorted_dict = dict(sorted_data)
+    first_rounds.append(list(sorted_dict.keys()))
+    def get_age(item):
+        return item[1]['Seed']
+    data_list = list(west.items())
+    sorted_data = sorted(data_list, key=get_age)
+    sorted_dict = dict(sorted_data)
+    first_rounds.append(list(sorted_dict.keys()))
+    def get_age(item):
+        return item[1]['Seed']
+    data_list = list(south.items())
+    sorted_data = sorted(data_list, key=get_age)
+    sorted_dict = dict(sorted_data)
+    first_rounds.append(list(sorted_dict.keys()))
+    def get_age(item):
+        return item[1]['Seed']
+    data_list = list(midwest.items())
+    sorted_data = sorted(data_list, key=get_age)
+    sorted_dict = dict(sorted_data)
+    first_rounds.append(list(sorted_dict.keys()))
+
+
+    east_total = []
+    east_total.append(east_first)
+    east_total.append(east_second)
+    east_total.append(east_third)
+    east_total.append(east_winner)
+    west_total = []
+    west_total.append(west_first)
+    west_total.append(west_second)
+    west_total.append(west_third)
+    west_total.append(west_winner)
+    south_total = []
+    south_total.append(south_first)
+    south_total.append(south_second)
+    south_total.append(south_third)
+    south_total.append(south_winner)
+    mid_total = []
+    mid_total.append(mid_first)
+    mid_total.append(mid_second)
+    mid_total.append(mid_third)
+    mid_total.append(mid_winner)
+
+    final = [south_mid, east_west]
+    winner = champ
+
+    return first_rounds, east_total, west_total, south_total, mid_total, final, winner

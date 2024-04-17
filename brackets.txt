@@ -1,0 +1,304 @@
+
+Region East:
+
+Round: 1 
+
+    UConn Huskies                  ──┐
+                                     │-- UConn Huskies
+    Stetson Hatters                ──┘
+
+    Florida Atlantic Owls          ──┐
+                                     │-- Florida Atlantic Owls
+    Northwestern Wildcats          ──┘
+
+    San Diego State Aztecs         ──┐
+                                     │-- San Diego State Aztecs
+    UAB Blazers                    ──┘
+
+    Auburn Tigers                  ──┐
+                                     │-- Yale Bulldogs
+    Yale Bulldogs                  ──┘
+
+    BYU Cougars                    ──┐
+                                     │-- BYU Cougars
+    Duquesne Dukes                 ──┘
+
+    Illinois Fighting Illini       ──┐
+                                     │-- Illinois Fighting Illini
+    Morehead State Eagles          ──┘
+
+    Washington State Cougars       ──┐
+                                     │-- Washington State Cougars
+    Drake Bulldogs                 ──┘
+
+    Iowa State Cyclones            ──┐
+                                     │-- Iowa State Cyclones
+    South Dakota State Jackrabbits ──┘
+
+
+Round: 2
+    UConn Huskies            ──┐
+                               │-- UConn Huskies
+    Florida Atlantic Owls    ──┘
+
+    San Diego State Aztecs   ──┐
+                               │-- San Diego State Aztecs
+    Yale Bulldogs            ──┘
+
+    BYU Cougars              ──┐
+                               │-- Illinois Fighting Illini
+    Illinois Fighting Illini ──┘
+
+    Washington State Cougars ──┐
+                               │-- Iowa State Cyclones
+    Iowa State Cyclones      ──┘
+
+
+Round: 3
+    UConn Huskies            ──┐
+                               │-- UConn Huskies
+    San Diego State Aztecs   ──┘
+
+    Illinois Fighting Illini ──┐
+                               │-- Iowa State Cyclones
+    Iowa State Cyclones      ──┘
+
+
+Round: 4
+    UConn Huskies       ──┐
+                          │-- UConn Huskies
+    Iowa State Cyclones ──┘
+
+
+
+Region West:
+
+Round: 1 
+
+    North Carolina Tar Heels   ──┐
+                                 │-- North Carolina Tar Heels
+    Howard Bison               ──┘
+
+    Mississippi State Bulldogs ──┐
+                                 │-- Mississippi State Bulldogs
+    Michigan State Spartans    ──┘
+
+    Saint Mary's Gaels         ──┐
+                                 │-- Saint Mary's Gaels
+    Grand Canyon Lopes         ──┘
+
+    Alabama Crimson Tide       ──┐
+                                 │-- Alabama Crimson Tide
+    Charleston Cougars         ──┘
+
+    Clemson Tigers             ──┐
+                                 │-- Clemson Tigers
+    New Mexico Lobos           ──┘
+
+    Baylor Bears               ──┐
+                                 │-- Baylor Bears
+    Colgate Raiders            ──┘
+
+    Dayton Flyers              ──┐
+                                 │-- Dayton Flyers
+    Nevada Wolf Pack           ──┘
+
+    Arizona Wildcats           ──┐
+                                 │-- Arizona Wildcats
+    Long Beach State Beach     ──┘
+
+
+Round: 2
+    North Carolina Tar Heels   ──┐
+                                 │-- North Carolina Tar Heels
+    Mississippi State Bulldogs ──┘
+
+    Saint Mary's Gaels         ──┐
+                                 │-- Saint Mary's Gaels
+    Alabama Crimson Tide       ──┘
+
+    Clemson Tigers             ──┐
+                                 │-- Baylor Bears
+    Baylor Bears               ──┘
+
+    Dayton Flyers              ──┐
+                                 │-- Arizona Wildcats
+    Arizona Wildcats           ──┘
+
+
+Round: 3
+    North Carolina Tar Heels ──┐
+                               │-- North Carolina Tar Heels
+    Saint Mary's Gaels       ──┘
+
+    Baylor Bears             ──┐
+                               │-- Arizona Wildcats
+    Arizona Wildcats         ──┘
+
+
+Round: 4
+    North Carolina Tar Heels ──┐
+                               │-- North Carolina Tar Heels
+    Arizona Wildcats         ──┘
+
+
+
+Region South:
+
+Round: 1 
+
+    Houston Cougars              ──┐
+                                   │-- Houston Cougars
+    Western Kentucky Hilltoppers ──┘
+
+    Nebraska Cornhuskers         ──┐
+                                   │-- Nebraska Cornhuskers
+    Texas A&M Aggies             ──┘
+
+    Wisconsin Badgers            ──┐
+                                   │-- Wisconsin Badgers
+    NC State Wolfpack            ──┘
+
+    Duke Blue Devils             ──┐
+                                   │-- Duke Blue Devils
+    James Madison Dukes          ──┘
+
+    Texas Tech Red Raiders       ──┐
+                                   │-- Texas Tech Red Raiders
+    Boise State Broncos          ──┘
+
+    Kentucky Wildcats            ──┐
+                                   │-- Kentucky Wildcats
+    Vermont Catamounts           ──┘
+
+    Florida Gators               ──┐
+                                   │-- Florida Gators
+    Colorado Buffaloes           ──┘
+
+    Marquette Golden Eagles      ──┐
+                                   │-- Marquette Golden Eagles
+    Oakland Golden Grizzlies     ──┘
+
+
+Round: 2
+    Houston Cougars         ──┐
+                              │-- Houston Cougars
+    Nebraska Cornhuskers    ──┘
+
+    Wisconsin Badgers       ──┐
+                              │-- Duke Blue Devils
+    Duke Blue Devils        ──┘
+
+    Texas Tech Red Raiders  ──┐
+                              │-- Kentucky Wildcats
+    Kentucky Wildcats       ──┘
+
+    Florida Gators          ──┐
+                              │-- Marquette Golden Eagles
+    Marquette Golden Eagles ──┘
+
+
+Round: 3
+    Houston Cougars         ──┐
+                              │-- Houston Cougars
+    Duke Blue Devils        ──┘
+
+    Kentucky Wildcats       ──┐
+                              │-- Kentucky Wildcats
+    Marquette Golden Eagles ──┘
+
+
+Round: 4
+    Houston Cougars   ──┐
+                        │-- Houston Cougars
+    Kentucky Wildcats ──┘
+
+
+
+Region Midwest:
+
+Round: 1 
+
+    Purdue Boilermakers      ──┐
+                               │-- Purdue Boilermakers
+    Saint Peter's Peacocks   ──┘
+
+    Utah State Aggies        ──┐
+                               │-- Utah State Aggies
+    TCU Horned Frogs         ──┘
+
+    Gonzaga Bulldogs         ──┐
+                               │-- Gonzaga Bulldogs
+    Oregon Ducks             ──┘
+
+    Kansas Jayhawks          ──┐
+                               │-- Kansas Jayhawks
+    McNeese Cowboys          ──┘
+
+    South Carolina Gamecocks ──┐
+                               │-- South Carolina Gamecocks
+    Virginia Cavaliers       ──┘
+
+    Creighton Bluejays       ──┐
+                               │-- Creighton Bluejays
+    Samford Bulldogs         ──┘
+
+    Texas Longhorns          ──┐
+                               │-- Texas Longhorns
+    Colorado State Rams      ──┘
+
+    Tennessee Volunteers     ──┐
+                               │-- Tennessee Volunteers
+    Akron Zips               ──┘
+
+
+Round: 2
+    Purdue Boilermakers      ──┐
+                               │-- Purdue Boilermakers
+    Utah State Aggies        ──┘
+
+    Gonzaga Bulldogs         ──┐
+                               │-- Gonzaga Bulldogs
+    Kansas Jayhawks          ──┘
+
+    South Carolina Gamecocks ──┐
+                               │-- South Carolina Gamecocks
+    Creighton Bluejays       ──┘
+
+    Texas Longhorns          ──┐
+                               │-- Texas Longhorns
+    Tennessee Volunteers     ──┘
+
+
+Round: 3
+    Purdue Boilermakers      ──┐
+                               │-- Purdue Boilermakers
+    Gonzaga Bulldogs         ──┘
+
+    South Carolina Gamecocks ──┐
+                               │-- South Carolina Gamecocks
+    Texas Longhorns          ──┘
+
+
+Round: 4
+    Purdue Boilermakers      ──┐
+                               │-- Purdue Boilermakers
+    South Carolina Gamecocks ──┘
+
+
+Final Four: 
+    Houston Cougars          ──┐
+                               │-- Purdue Boilermakers
+    Purdue Boilermakers      ──┘
+
+    UConn Huskies            ──┐
+                               │-- UConn Huskies
+    North Carolina Tar Heels ──┘
+
+
+Final: 
+    Purdue Boilermakers ──┐
+                          │-- UConn Huskies
+    UConn Huskies       ──┘
+
+
