@@ -314,14 +314,14 @@ def run():
     #     print(f"{team}: {details}")
 
     # Debug print to check length of combined before deletions
-    print("The number of entries in the combined dictionary is:", len(combined))
+    # print("The number of entries in the combined dictionary is:", len(combined))
 
     # Lines to remove the four teams we don't want from the dictionary, this is hard coded
     teams_to_remove = ['Howard Bison', 'Virginia Cavaliers', 'Montana State Bobcats', 'Boise State Broncos']
     combined = delete_keys_from_dict(combined, teams_to_remove)
 
     # Debug print to check length of combined after deletions
-    print("The number of entries in the combined dictionary is:", len(combined))
+    # print("The number of entries in the combined dictionary is:", len(combined))
 
     # Region-wise dictonary portion, along with its respective print command
     east, west, south, midwest = split_by_region(combined)
