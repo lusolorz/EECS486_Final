@@ -26,6 +26,42 @@ Run the following command in your terminal to execute bash script:
 
 $ bash ./evaluation.sh
 
+------------------------
+populate_dictionaries.py
+------------------------
+
+Functions:
+
+percent_to_bool() - 
+
+populate_tournament() - 
+
+Populate_resume() - 
+
+remove_repeats() -
+
+combine_dictionaries() - 
+
+delete_keys_from_dict() - 
+
+split_by_region() - 
+
+analyze() - 
+
+tiebreaker() - 
+
+seed_name() - 
+
+first_round() - 
+
+later_rounds() - 
+
+diff_regions() - 
+
+run() - This function calls all functions required to fill a list with all relevant information (initial 16 for each region and winners for each matchup) 
+separated by region and tournament life cycle. 
+
+
 -------------------------
  bracket_visualization.py
 -------------------------
