@@ -148,7 +148,6 @@ def analyze(region):
 
 # tiebreaker for similar scores 
 def tiebreaker(region, teamName1, teamName2):
-    # !CHANGE RANGE DEPENDING ON SCORE
     if abs(region[teamName1]["Score"] - region[teamName2]["Score"]) < 0.01:
         if int(region[teamName1]["Seed"]) > int(region[teamName2]["Seed"]):
             return teamName2
