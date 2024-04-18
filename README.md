@@ -13,7 +13,7 @@ Precision = (# of correct members of final four predicted)/(number of total memb
 We do not calculate recall as total number of relevant members equals total number of members in the final four. (precision
 and recall would be the same)
 
-FILES AND FUNCTION DESCRIPTIONS
+#FILES AND FUNCTION DESCRIPTIONS
 
 --------------
 evaluation.sh
