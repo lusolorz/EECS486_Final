@@ -20,32 +20,34 @@ fetch_html.py
 -------------
 
 fetch_and_save_html() - This function retrieves each of the raw HTML files for a given link and saves them into a passed-in file. This takes in the required header to simulate a browser request, the link we'd like to retrieve, and the file we'd like to have the HTML code in. This gives us a file with completed HTML code of a website.
+
 crawl_websites() - This function runs the four instances of the fetch_and_save_html file and runs the four instances of the fetch_and_save_html function to retrieve all of the data. This doesn't have input arguments.
+
 main() - This runs the crawl_websites() function and gives you a prompt to clarify when the links are being crawled.
 
 ---------------
 resume_asc.html
 ---------------
 
-
+Sorted in ascending order by seed values, this file provides a detailed summary of team performances over the season, including win-loss records and strength rankings such as the Strength of Record (SOR) and Strength of Schedule (SOS). It's vital for bracket predictions, offering insights into each team's capabilities and historical performance.
 
 ---------------
 resume_desc.html
 ---------------
 
-
+This file offers a descending order dataset of the same performance metrics found in 'resume_asc.html'. It ensures no crucial data is missed during the scraping process, capturing complete information for all teams, particularly those hidden in dynamically-loaded content areas of the website.
 
 --------------------
 tournament_asc.html
 --------------------
 
-
+This file contains tournament-related data sorted in ascending order by seed values. It includes team progression probabilities through various tournament stages, region assignments, and seed numbers. The data is essential for generating keys in dictionaries that handle region-specific details and probabilities necessary for in-depth bracket analysis.
 
 --------------------
 tournament_desc.html
 --------------------
 
-
+Complementary to the 'tournament_asc.html', this file presents the same tournament data sorted in descending order. It ensures thorough data capture, especially useful for sections of the webpage that might not load all content in one view, such as data behind dynamic 'Show More' buttons.
 
 -------------
 evaluation.sh
@@ -64,19 +66,19 @@ populate_dictionaries.py
 
 Functions:
 
-percent_to_bool() - 
+percent_to_bool() - This function converts a string percentage into a boolean. It strips the percent symbol from the string, converts it to a float, and returns True if the percentage is greater than 0, otherwise False. This function is mainly used to handle boolean logic based on percentage values in your dataset. It takes in a string and gives a bool back.
 
-populate_tournament() - 
+populate_tournament() - This function reads an HTML file, parses its content using BeautifulSoup, and extracts tournament team names and their corresponding details (like seed, region, and probabilities for reaching certain tournament stages). It returns a dictionary where team names are keys and their details are values. This function helps build the primary dataset from tournament information.
 
-Populate_resume() - 
+populate_resume() - Similar to populate_tournament(), this function processes another HTML file to gather team performance statistics like wins, losses, win percentage, and strength of schedule ranking. It returns a dictionary with team names as keys and detailed statistics as values, enriching the dataset with performance metrics.
 
-remove_repeats() -
+remove_repeats() - This function merges two dictionaries by adding entries from the second dictionary to the first only if the keys do not already exist in the first. It is used to ensure there are no duplicate teams in your data while combining data from ascending and descending lists. It takes in two dictionaries and returns one back, with all of the keys added. 
 
-combine_dictionaries() - 
+combine_dictionaries() - This function combines two dictionaries by updating the values of the first dictionary with values from the second dictionary for matching keys. This is crucial for merging different sets of data about the same teams. It takes in two dictionaries and returns one back with all of the extra values.
 
-delete_keys_from_dict() - 
+delete_keys_from_dict() - This function removes specific entries from a dictionary based on a list of keys to remove. It's used to eliminate teams that are not part of the simulation or analysis, helping to focus on the relevant subset of data. It takes in a dictionary that we'd like to delete keys from and list of keys to be deleted and returns back the dictionary with the specified keys deleted.
 
-split_by_region() - 
+split_by_region() - This function divides a dictionary into four separate dictionaries based on team regions (East, West, South, Midwest). Each team's region is determined from their details in the combined dictionary, facilitating regional analyses and simulations within the tournament structure. This takes in one large combined dictionary and returns four smaller dictionaries based on region.
 
 analyze() - This function takes in a dictonary for a specific region and outputs nothing. This function adds the key "Score" to each team in the dictonary that is passed in. Score slightly alters the win% using SOS RK.
 
