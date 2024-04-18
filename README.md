@@ -13,13 +13,14 @@ Precision = (# of correct members of final four predicted)/(number of total memb
 We do not calculate recall as total number of relevant members equals total number of members in the final four. (precision
 and recall would be the same)
 
+FILES AND FUNCTION DESCRIPTIONS
 
-  ###############################################################
-  ##############  FILES AND FUNCTION DESCRIPTIONS  ##############
-  ###############################################################
+--------------
+evaluation.sh
+--------------
 
-
-
+Includes bash script to run the population and evaluation of our data. THIS DOES NOT INCLUDE THE SCRAPING FOR OUR DATA. We initally scraped once and
+saved the HTML files to our project. If you wish to re-scrape you will have to run fetch_html before running the bash script. 
 
 -------------------------
  bracket_visualization.py
