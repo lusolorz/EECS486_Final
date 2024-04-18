@@ -78,17 +78,17 @@ delete_keys_from_dict() -
 
 split_by_region() - 
 
-analyze() - 
+analyze() - This function takes in a dictonary for a specific region and outputs nothing. This function adds the key "Score" to each team in the dictonary that is passed in. Score slightly alters the win% using SOS RK.
 
 tiebreaker() - This function helps settle ties in scores. If two teams have scores that are within a threshold, this function helps prioritize a function based on their seeding value. (the lower the seed, the higher the priority for that team) 
 
-seed_name() - 
+seed_name() - This function takes in a dictonary where the key is the name of a team and the value is a list of stats for a specific region and outputs a dictonary where the key is the seed number and the value is the name of the team.
 
-first_round() - 
+first_round() - This function takes in two dictonaries for a specific region. This function outputs a list of team names that won their games for the first round in this region(16 teams, 8 games). 
 
-later_rounds() - 
+later_rounds() - This function takes in a dictonary for a specific region, the list of winners from the pervious round, and the number of games in this round. This function outputs a list of winners for this round in a particular region.
 
-diff_regions() - 
+diff_regions() - This function takes in a team name and the dictonary for that region and another team name and the dictonary for that region. This function handles games when the teams are in different regions during the Final Four and Champsion games. This function ouputs the team name of the winner and the dictionary of the region they are in.
 
 run() - This function calls all functions required to fill a list with all relevant information (initial 16 for each region and winners for each matchup) 
 separated by region and tournament life cycle. 
