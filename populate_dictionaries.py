@@ -162,10 +162,11 @@ def seed_name(region):
         seeds[region[key]["Seed"]] = key
     return seeds
 
-# This runs the initial round
+# This runs the initial round with 16 teams in each region
+# seeds 1v16, 2v15, 3v14, 4v13 have randomness
+# seeds 5v12, 6v11, 7v10, 8v9 use historical data to dampen score
 def first_round(region, seeds):
     winners = []
-    # random
     per_1_16 = 0.987
     rand_one = random.randint(0,100)/100
     if rand_one <= per_1_16:
@@ -224,7 +225,9 @@ def first_round(region, seeds):
 # This runs remainder of rounds within a region
 def later_rounds(region, teams, num):
     winners = []
+    # uses count so we can pair teams together for each game
     count = 0
+    # 13% chance of an upset
     randomness = 87
     while count < num:
         rand = random.randint(0,100)
@@ -232,6 +235,7 @@ def later_rounds(region, teams, num):
         team_two = teams[count+1]
         score_one = region[team_one]["Score"]
         score_two = region[team_two]["Score"]
+        # no upset
         if rand <= randomness:
             if score_one > score_two:
                 winners.append(team_one)
@@ -239,6 +243,7 @@ def later_rounds(region, teams, num):
                 winners.append(team_two)
             else:
                 winners.append(tiebreaker(region, team_one, team_two))
+        #upset
         else:
             if score_one > score_two:
                 winners.append(team_two)
@@ -249,8 +254,9 @@ def later_rounds(region, teams, num):
         count += 2
     return winners
 
-# This is to run the final four within the bracket
+# This is to run the final four and final game
 def diff_regions(team_one, region_one, team_two, region_two):
+    # percentage of upset is 10%
     randomness = 90
     rand = random.randint(0,100)
     if isinstance(team_one, list):
@@ -258,6 +264,7 @@ def diff_regions(team_one, region_one, team_two, region_two):
         team_two = team_two[0]
     score_one = region_one[team_one]["Score"]
     score_two = region_two[team_two]["Score"]
+    # no oupset
     if rand <= randomness:
         if score_one >= score_two:
             return team_one, region_one
@@ -268,6 +275,7 @@ def diff_regions(team_one, region_one, team_two, region_two):
                 return team_one, region_one
             else:
                 return team_two, region_two
+    # upset
     else:
         if score_one > score_two:
             return team_two, region_two
