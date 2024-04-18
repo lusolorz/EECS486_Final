@@ -19,9 +19,9 @@ and recall would be the same)
 fetch_html.py
 -------------
 
-fetch_and_save_html() - 
-crawl_websites() - 
-main() - 
+fetch_and_save_html() - This function retrieves each of the raw HTML files for a given link and saves them into a passed-in file. This takes in the required header to simulate a browser request, the link we'd like to retrieve, and the file we'd like to have the HTML code in. This gives us a file with completed HTML code of a website.
+crawl_websites() - This function runs the four instances of the fetch_and_save_html file and runs the four instances of the fetch_and_save_html function to retrieve all of the data. This doesn't have input arguments.
+main() - This runs the crawl_websites() function and gives you a prompt to clarify when the links are being crawled.
 
 ---------------
 resume_asc.html
