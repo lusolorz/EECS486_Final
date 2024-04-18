@@ -95,14 +95,12 @@ def populate_resume(html_file_path):
 
     return full_team_data
 
-
-# adds teams in dict2 to dict1
+# This is meant to give us all 68 teams into the 'combined' dictionary
 def remove_repeats(dict1, dict2):
     for key in dict2:
         if key not in dict1:
             dict1[key] = dict2[key]
     return dict1
-
 
 # This combines the tournament and the resume website's dictionary into the combined intermediary dictonary, 
 def combine_dictionaries(dict1, dict2):
@@ -111,6 +109,11 @@ def combine_dictionaries(dict1, dict2):
             dict1[key].update(dict2[key])
     return dict1
 
+# This deletes a list of the keys we don't want to have from a dictionary, this can be used to free up space, or to remove the four teams we don't use.
+def delete_keys_from_dict(team_dict, keys_to_remove):
+    for key in keys_to_remove:
+        team_dict.pop(key, None)  # The None here means it will do nothing if the key is not found.
+    return team_dict
 
 # This just separates and gives us all of the dictonaries of our dreams (the four regions)
 def split_by_region(combined_data):
@@ -135,8 +138,7 @@ def split_by_region(combined_data):
 
     return east_dict, west_dict, south_dict, midwest_dict
 
-
-# analysis
+# This provides us with the actual scoring portion of the 
 def analyze(region):
     scale = 0.05
     for team in region:
@@ -153,14 +155,14 @@ def tiebreaker(region, teamName1, teamName2):
         else:
             return teamName1
 
-# creates a dictonary key: seed, value: team name
+# This creates a dictonary key: seed, value: team name
 def seed_name(region):
     seeds = {}
     for key in region:
         seeds[region[key]["Seed"]] = key
     return seeds
 
-
+# This runs the initial round
 def first_round(region, seeds):
     winners = []
     # random
@@ -219,6 +221,7 @@ def first_round(region, seeds):
         winners.append(seeds[15])
     return winners
 
+# This runs remainder of rounds within a region
 def later_rounds(region, teams, num):
     winners = []
     count = 0
@@ -246,7 +249,7 @@ def later_rounds(region, teams, num):
         count += 2
     return winners
 
-
+# This is to run the final four within the bracket
 def diff_regions(team_one, region_one, team_two, region_two):
     randomness = 90
     rand = random.randint(0,100)
@@ -275,6 +278,7 @@ def diff_regions(team_one, region_one, team_two, region_two):
                 return team_one, region_one
             else:
                 return team_two, region_two
+
 def run():
     if len(sys.argv) != 5:
         print("Usage: python3 populate_dictionaries.py tournament_asc.html tournament_desc.html resume_asc.html resume_desc.html")
@@ -308,6 +312,16 @@ def run():
     # print("SIZE: " + str(len(combined.keys())))
     # for team, details in combined.items():
     #     print(f"{team}: {details}")
+
+    # Debug print to check length of combined before deletions
+    print("The number of entries in the combined dictionary is:", len(combined))
+
+    # Lines to remove the four teams we don't want from the dictionary, this is hard coded
+    teams_to_remove = ['Wagner Seahawks', 'Colorado State Rams', 'Grambling Tigers', 'Colorado Buffaloes']
+    combined = delete_keys_from_dict(combined, teams_to_remove)
+
+    # Debug print to check length of combined after deletions
+    print("The number of entries in the combined dictionary is:", len(combined))
 
     # Region-wise dictonary portion, along with its respective print command
     east, west, south, midwest = split_by_region(combined)
