@@ -128,7 +128,22 @@ Contains precision scores for each individual bracket for the 50 brackets genera
 
 Reads in precision scores from brackets_eval.txt and outputs a final precision score averaged over 50 brackets when run with bash script 
 
+--------------
+ BracketsScoring.ods
+--------------
 
+This file is meant to have all of the actual data analysis within excel format for the scoring.
 
+Pages:
 
+Raw Scoring (Human & Expert) - This has all of the raw scoring metrics for the 10 Human brackets and the 3 Expert brackets
 
+Raw Scoring (BracketGenius) - This has all of the raw scoring metrics for the 10 Generated Brackets
+
+Human Data Evals - This has the precision and the statistical data evaluations for the Human scored brackets.
+
+Combined Data - This is page for the average precisions per round for all of the three scored data sources, to help compare their efficacies.
+
+Bracket Data Evals -  This has the precision and the statistical data evaluations for the Generated scored brackets.
+
+Expert Data Evals -  This has the precision and the statistical data evaluations for the Expert scored brackets.
