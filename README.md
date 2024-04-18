@@ -80,7 +80,7 @@ split_by_region() -
 
 analyze() - 
 
-tiebreaker() - 
+tiebreaker() - This function helps settle ties in scores. If two teams have scores that are within a threshold, this function helps prioritize a function based on their seeding value. (the lower the seed, the higher the priority for that team) 
 
 seed_name() - 
 
