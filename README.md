@@ -15,9 +15,41 @@ and recall would be the same)
 
 #FILES AND FUNCTION DESCRIPTIONS
 
---------------
+-------------
+fetch_html.py
+-------------
+
+fetch_and_save_html() - 
+crawl_websites() - 
+main() - 
+
+---------------
+resume_asc.html
+---------------
+
+
+
+---------------
+resume_desc.html
+---------------
+
+
+
+--------------------
+tournament_asc.html
+--------------------
+
+
+
+--------------------
+tournament_desc.html
+--------------------
+
+
+
+-------------
 evaluation.sh
---------------
+-------------
 
 Includes bash script to run the population and evaluation of our data. THIS DOES NOT INCLUDE THE SCRAPING FOR OUR DATA. We initally scraped once and
 saved the HTML files to our project. If you wish to re-scrape you will have to run fetch_html before running the bash script. 
@@ -76,21 +108,21 @@ and writes round bracket to brackets.txt file
 first_round() - prints and generates bracket for the first round of the tournament. Called for each region once. Takes in all required 
 arguments for generate_bracket() and print_bracket(). Takes in a sorted list of teams based on seeds ASC and arranges matches based on seeds.
 
---------------
+-------------
  brackets.txt 
---------------
+-------------
 
 Contains the 50th bracket generated after running bash script. Brackets are organized by region by round with a final four and final matchup. 
 
--------------------
+------------------
  brackets_eval.txt 
--------------------
+------------------
 
 Contains precision scores for each individual bracket for the 50 brackets generated with the bash script. 
 
----------------
+--------------
  final_eval.py 
----------------
+--------------
 
 Reads in precision scores from brackets_eval.txt and outputs a final precision score averaged over 50 brackets when run with bash script 
 
