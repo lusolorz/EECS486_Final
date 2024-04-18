@@ -401,3 +401,5 @@ def run():
     #final four
     final = [south_mid, east_west]
     winner = champ
+
+    return first_rounds, east_total, west_total, south_total, mid_total, final, winner
