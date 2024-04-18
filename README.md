@@ -22,6 +22,10 @@ evaluation.sh
 Includes bash script to run the population and evaluation of our data. THIS DOES NOT INCLUDE THE SCRAPING FOR OUR DATA. We initally scraped once and
 saved the HTML files to our project. If you wish to re-scrape you will have to run fetch_html before running the bash script. 
 
+Run the following command in your terminal to execute bash script:
+
+$ bash ./evaluation.sh
+
 -------------------------
  bracket_visualization.py
 -------------------------
