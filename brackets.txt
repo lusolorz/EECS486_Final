@@ -24,7 +24,7 @@ Round: 1
     Duquesne Dukes                 ──┘
 
     Illinois Fighting Illini       ──┐
-                                     │-- Illinois Fighting Illini
+                                     │-- Morehead State Eagles
     Morehead State Eagles          ──┘
 
     Washington State Cougars       ──┐
@@ -46,8 +46,8 @@ Round: 2
     Yale Bulldogs            ──┘
 
     BYU Cougars              ──┐
-                               │-- Illinois Fighting Illini
-    Illinois Fighting Illini ──┘
+                               │-- BYU Cougars
+    Morehead State Eagles    ──┘
 
     Washington State Cougars ──┐
                                │-- Iowa State Cyclones
@@ -55,19 +55,19 @@ Round: 2
 
 
 Round: 3
-    UConn Huskies            ──┐
-                               │-- UConn Huskies
-    San Diego State Aztecs   ──┘
+    UConn Huskies          ──┐
+                             │-- San Diego State Aztecs
+    San Diego State Aztecs ──┘
 
-    Illinois Fighting Illini ──┐
-                               │-- Iowa State Cyclones
-    Iowa State Cyclones      ──┘
+    BYU Cougars            ──┐
+                             │-- Iowa State Cyclones
+    Iowa State Cyclones    ──┘
 
 
 Round: 4
-    UConn Huskies       ──┐
-                          │-- UConn Huskies
-    Iowa State Cyclones ──┘
+    San Diego State Aztecs ──┐
+                             │-- Iowa State Cyclones
+    Iowa State Cyclones    ──┘
 
 
 
@@ -77,7 +77,7 @@ Round: 1
 
     North Carolina Tar Heels   ──┐
                                  │-- North Carolina Tar Heels
-    Howard Bison               ──┘
+    Wagner Seahawks            ──┘
 
     Mississippi State Bulldogs ──┐
                                  │-- Mississippi State Bulldogs
@@ -110,7 +110,7 @@ Round: 1
 
 Round: 2
     North Carolina Tar Heels   ──┐
-                                 │-- North Carolina Tar Heels
+                                 │-- Mississippi State Bulldogs
     Mississippi State Bulldogs ──┘
 
     Saint Mary's Gaels         ──┐
@@ -127,19 +127,19 @@ Round: 2
 
 
 Round: 3
-    North Carolina Tar Heels ──┐
-                               │-- North Carolina Tar Heels
-    Saint Mary's Gaels       ──┘
+    Mississippi State Bulldogs ──┐
+                                 │-- Saint Mary's Gaels
+    Saint Mary's Gaels         ──┘
 
-    Baylor Bears             ──┐
-                               │-- Arizona Wildcats
-    Arizona Wildcats         ──┘
+    Baylor Bears               ──┐
+                                 │-- Arizona Wildcats
+    Arizona Wildcats           ──┘
 
 
 Round: 4
-    North Carolina Tar Heels ──┐
-                               │-- North Carolina Tar Heels
-    Arizona Wildcats         ──┘
+    Saint Mary's Gaels ──┐
+                         │-- Arizona Wildcats
+    Arizona Wildcats   ──┘
 
 
 
@@ -149,7 +149,7 @@ Round: 1
 
     Houston Cougars              ──┐
                                    │-- Houston Cougars
-    Western Kentucky Hilltoppers ──┘
+    Longwood Lancers             ──┘
 
     Nebraska Cornhuskers         ──┐
                                    │-- Nebraska Cornhuskers
@@ -157,19 +157,19 @@ Round: 1
 
     Wisconsin Badgers            ──┐
                                    │-- Wisconsin Badgers
-    NC State Wolfpack            ──┘
+    James Madison Dukes          ──┘
 
     Duke Blue Devils             ──┐
                                    │-- Duke Blue Devils
-    James Madison Dukes          ──┘
+    Vermont Catamounts           ──┘
 
     Texas Tech Red Raiders       ──┐
                                    │-- Texas Tech Red Raiders
-    Boise State Broncos          ──┘
+    NC State Wolfpack            ──┘
 
     Kentucky Wildcats            ──┐
                                    │-- Kentucky Wildcats
-    Vermont Catamounts           ──┘
+    Oakland Golden Grizzlies     ──┘
 
     Florida Gators               ──┐
                                    │-- Florida Gators
@@ -177,12 +177,12 @@ Round: 1
 
     Marquette Golden Eagles      ──┐
                                    │-- Marquette Golden Eagles
-    Oakland Golden Grizzlies     ──┘
+    Western Kentucky Hilltoppers ──┘
 
 
 Round: 2
     Houston Cougars         ──┐
-                              │-- Houston Cougars
+                              │-- Nebraska Cornhuskers
     Nebraska Cornhuskers    ──┘
 
     Wisconsin Badgers       ──┐
@@ -199,19 +199,19 @@ Round: 2
 
 
 Round: 3
-    Houston Cougars         ──┐
-                              │-- Houston Cougars
+    Nebraska Cornhuskers    ──┐
+                              │-- Duke Blue Devils
     Duke Blue Devils        ──┘
 
     Kentucky Wildcats       ──┐
-                              │-- Kentucky Wildcats
+                              │-- Marquette Golden Eagles
     Marquette Golden Eagles ──┘
 
 
 Round: 4
-    Houston Cougars   ──┐
-                        │-- Houston Cougars
-    Kentucky Wildcats ──┘
+    Duke Blue Devils        ──┐
+                              │-- Duke Blue Devils
+    Marquette Golden Eagles ──┘
 
 
 
@@ -221,7 +221,7 @@ Round: 1
 
     Purdue Boilermakers      ──┐
                                │-- Purdue Boilermakers
-    Saint Peter's Peacocks   ──┘
+    Grambling Tigers         ──┘
 
     Utah State Aggies        ──┐
                                │-- Utah State Aggies
@@ -229,19 +229,19 @@ Round: 1
 
     Gonzaga Bulldogs         ──┐
                                │-- Gonzaga Bulldogs
-    Oregon Ducks             ──┘
+    McNeese Cowboys          ──┘
 
     Kansas Jayhawks          ──┐
-                               │-- Kansas Jayhawks
-    McNeese Cowboys          ──┘
+                               │-- Samford Bulldogs
+    Samford Bulldogs         ──┘
 
     South Carolina Gamecocks ──┐
                                │-- South Carolina Gamecocks
-    Virginia Cavaliers       ──┘
+    Oregon Ducks             ──┘
 
     Creighton Bluejays       ──┐
                                │-- Creighton Bluejays
-    Samford Bulldogs         ──┘
+    Akron Zips               ──┘
 
     Texas Longhorns          ──┐
                                │-- Texas Longhorns
@@ -249,7 +249,7 @@ Round: 1
 
     Tennessee Volunteers     ──┐
                                │-- Tennessee Volunteers
-    Akron Zips               ──┘
+    Saint Peter's Peacocks   ──┘
 
 
 Round: 2
@@ -259,14 +259,14 @@ Round: 2
 
     Gonzaga Bulldogs         ──┐
                                │-- Gonzaga Bulldogs
-    Kansas Jayhawks          ──┘
+    Samford Bulldogs         ──┘
 
     South Carolina Gamecocks ──┐
                                │-- South Carolina Gamecocks
     Creighton Bluejays       ──┘
 
     Texas Longhorns          ──┐
-                               │-- Texas Longhorns
+                               │-- Tennessee Volunteers
     Tennessee Volunteers     ──┘
 
 
@@ -276,29 +276,29 @@ Round: 3
     Gonzaga Bulldogs         ──┘
 
     South Carolina Gamecocks ──┐
-                               │-- South Carolina Gamecocks
-    Texas Longhorns          ──┘
+                               │-- Tennessee Volunteers
+    Tennessee Volunteers     ──┘
 
 
 Round: 4
-    Purdue Boilermakers      ──┐
-                               │-- Purdue Boilermakers
-    South Carolina Gamecocks ──┘
+    Purdue Boilermakers  ──┐
+                           │-- Purdue Boilermakers
+    Tennessee Volunteers ──┘
 
 
 Final Four: 
-    Houston Cougars          ──┐
-                               │-- Purdue Boilermakers
-    Purdue Boilermakers      ──┘
+    Duke Blue Devils    ──┐
+                          │-- Purdue Boilermakers
+    Purdue Boilermakers ──┘
 
-    UConn Huskies            ──┐
-                               │-- UConn Huskies
-    North Carolina Tar Heels ──┘
+    Iowa State Cyclones ──┐
+                          │-- Iowa State Cyclones
+    Arizona Wildcats    ──┘
 
 
 Final: 
     Purdue Boilermakers ──┐
-                          │-- UConn Huskies
-    UConn Huskies       ──┘
+                          │-- Purdue Boilermakers
+    Iowa State Cyclones ──┘
 
 

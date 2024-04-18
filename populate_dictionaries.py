@@ -317,7 +317,7 @@ def run():
     print("The number of entries in the combined dictionary is:", len(combined))
 
     # Lines to remove the four teams we don't want from the dictionary, this is hard coded
-    teams_to_remove = ['Wagner Seahawks', 'Colorado State Rams', 'Grambling Tigers', 'Colorado Buffaloes']
+    teams_to_remove = ['Howard Bison', 'Virginia Cavaliers', 'Montana State Bobcats', 'Boise State Broncos']
     combined = delete_keys_from_dict(combined, teams_to_remove)
 
     # Debug print to check length of combined after deletions
