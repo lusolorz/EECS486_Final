@@ -60,6 +60,8 @@ Run the following command in your terminal to execute bash script:
 
 $ bash ./evaluation.sh
 
+Alternatively you may run the python commands in the bash script manually in terminal. We added the bashscript to automate the generation of 50. 
+
 ------------------------
 populate_dictionaries.py
 ------------------------
